@@ -1,0 +1,4 @@
+GET https://subscriptions.zoho.com/api/v1/plans HTTP/1.1
+Accept: application/json
+Authorization: Zoho-oauthtoken 1000.14d921351c585e23541680bfda8d2258.02bb35875239a4fa4ba464a24c51f417
+X-com-zoho-subscriptions-organizationid: 734935561

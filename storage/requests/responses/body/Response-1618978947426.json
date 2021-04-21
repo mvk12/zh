@@ -1,0 +1,47 @@
+{
+    "code": 0,
+    "message": "success",
+    "plans": [
+        {
+            "plan_code": "BASICTEST",
+            "name": "Basico",
+            "billing_mode": "prepaid",
+            "description": "",
+            "status": "active",
+            "product_id": "2439019000000074001",
+            "tax_id": "",
+            "tax_name": "",
+            "tax_percentage": 0,
+            "tax_type": "",
+            "trial_period": 0,
+            "setup_fee": 0.00,
+            "setup_fee_account_id": "2439019000000000388",
+            "setup_fee_account_name": "Ventas",
+            "account_id": "2439019000000000388",
+            "account": "Ventas",
+            "recurring_price": 1000.00,
+            "unit": "RSRV_BASICTEST",
+            "interval": 1,
+            "interval_unit": "weeks",
+            "billing_cycles": -1,
+            "product_type": "none",
+            "show_in_widget": false,
+            "store_description": "",
+            "store_markup_description": "",
+            "created_time": "2021-01-06T00:25:28-0600",
+            "created_time_formatted": "06 ene 2021 12:25:28 AM",
+            "updated_time": "2021-01-06T00:25:28-0600",
+            "updated_time_formatted": "06 ene 2021 12:25:28 AM",
+            "addons": [],
+            "custom_fields": []
+        }
+    ],
+    "page_context": {
+        "page": 1,
+        "per_page": 1000,
+        "has_more_page": false,
+        "applied_filter": "PlanStatus.All",
+        "sort_column": "created_time",
+        "sort_order": "A"
+    }
+}

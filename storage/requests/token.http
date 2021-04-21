@@ -1,0 +1,34 @@
+###
+### OBTAIN A NEW ACCESS TOKEN
+###
+POST https://accounts.zoho.com/oauth/v2/token HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+    "code": "1000.160271bb31c946015088faf1e1604459.36470a778d64d098547d4efb3efe4565",
+    "client_id": "1000.DM50R798IAJJF0S6HQB9WB244E6F3O",
+    "client_secret": "2f120b6cab59a7277624fff45839e13f3d37202f9f",
+    "redirect_uri": "http://zh.test/zoho/redirect",
+    "grant_type": "authorization_code",
+    "scope": "ZohoSubscriptions.fullaccess.all",
+    "state": "RETRIEVE-JWT"
+}
+
+
+###
+### REFRESH ACCESS TOKEN
+###
+
+
+POST https://accounts.zoho.com/oauth/v2/token HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+    "refresh_token": "1000.86942ddb5710ddd9100ae92aafad78e9.5a616304a3c2bdddcd1fe2d8e2dd29e4",
+    "client_id": "1000.DM50R798IAJJF0S6HQB9WB244E6F3O",
+    "client_secret": "2f120b6cab59a7277624fff45839e13f3d37202f9f",
+    "redirect_uri": "http://zh.test/zoho/redirect",
+    "grant_type": "refresh_token"
+}

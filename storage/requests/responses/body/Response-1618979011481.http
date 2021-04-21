@@ -1,0 +1,26 @@
+HTTP/1.1 200 
+Server: ZGS
+Date: Wed, 21 Apr 2021 04:21:57 GMT
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+Set-Cookie: a8c51ae498=4458abdd633d6a604376580555c60f75; Path=/,zsmcscook=7c237a78-fa09-4a89-9581-2372dcdf68ca;path=/;SameSite=None;Secure;priority=high,_zcsr_tmp=7c237a78-fa09-4a89-9581-2372dcdf68ca;path=/;SameSite=Strict;Secure;priority=high,JSESSIONID=150DAEE632BA6E7747E6F5A235895D0B; Path=/; Secure; HttpOnly
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1
+Pragma: no-cache
+Cache-Control: no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+X-Frame-Options: DENY
+X-Rate-Limit-Limit: 1000
+X-Rate-Limit-Reset: 2282
+X-Rate-Limit-Remaining: 1000
+Content-Disposition: attachment;
+Allow: OPTIONS, POST, GET
+BUILD_VERSION: Apr_12_2021_5084
+CLIENT_BUILD_VERSION: Apr_12_2021_5084
+SERVER_BUILD_VERSION: Apr_19_2021_17446/
+vary: accept-encoding
+Content-Encoding: gzip
+Strict-Transport-Security: max-age=63072000
+
+{"code":0,"message":"success","plans":[{"plan_code":"BASICTEST","name":"Basico","billing_mode":"prepaid","description":"","status":"active","product_id":"2439019000000074001","tax_id":"","tax_name":"","tax_percentage":0,"tax_type":"","trial_period":0,"setup_fee":0.00,"setup_fee_account_id":"2439019000000000388","setup_fee_account_name":"Ventas","account_id":"2439019000000000388","account":"Ventas","recurring_price":1000.00,"unit":"RSRV_BASICTEST","interval":1,"interval_unit":"weeks","billing_cycles":-1,"product_type":"none","show_in_widget":false,"store_description":"","store_markup_description":"","created_time":"2021-01-06T00:25:28-0600","created_time_formatted":"06 ene 2021 12:25:28 AM","updated_time":"2021-01-06T00:25:28-0600","updated_time_formatted":"06 ene 2021 12:25:28 AM","addons":[],"custom_fields":[]}],"page_context":{"page":1,"per_page":1000,"has_more_page":false,"applied_filter":"PlanStatus.All","sort_column":"created_time","sort_order":"A"}}
