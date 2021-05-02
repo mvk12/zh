@@ -1,0 +1,14 @@
+
+
+POST https://accounts.zoho.com/oauth/v2/token/self/authtoauth HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+    "client_id": "1000.DM50R798IAJJF0S6HQB9WB244E6F3O",
+    "client_secret": "2f120b6cab59a7277624fff45839e13f3d37202f9f",
+    "grant_type": "authtoauth",
+    "authtoken": "1000.526273f45e57d931c78c490eaf1156c8.139d491beb1f7edd14431f2738287454",
+    "soid": "ZohoSubscriptions.734935561",
+    "scope": "ZohoSubscriptions.fullaccess.all"
+}

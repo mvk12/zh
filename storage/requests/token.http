@@ -16,19 +16,19 @@ Content-Type: application/json
 }
 
 
+    
 ###
-### REFRESH ACCESS TOKEN
+### Convert AUTHTOKEN TO OAUTH
 ###
 
-
-POST https://accounts.zoho.com/oauth/v2/token HTTP/1.1
-Accept: application/json
+POST https://accounts.zoho.com/oauth/v2/token/self/authtooauth HTTP/1.1
 Content-Type: application/json
 
 {
-    "refresh_token": "1000.86942ddb5710ddd9100ae92aafad78e9.5a616304a3c2bdddcd1fe2d8e2dd29e4",
-    "client_id": "1000.DM50R798IAJJF0S6HQB9WB244E6F3O",
-    "client_secret": "2f120b6cab59a7277624fff45839e13f3d37202f9f",
-    "redirect_uri": "http://zh.test/zoho/redirect",
-    "grant_type": "refresh_token"
+    "client_id": "1000.UUNIMKTDKTEXBITS0BCK4C3RJW5T1K",
+    "client_secret": "80f99888162ec195a79668846d2efd73d6108868cb",
+    "grant_type": "authtooauth",
+    "auth_token": "1000.526273f45e57d931c78c490eaf1156c8.139d491beb1f7edd14431f2738287454",
+    "soid": "ZohoSubscriptions.749264377",
+    "scope": "ZohoSubscriptions.fullaccess.all"
 }

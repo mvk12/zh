@@ -1,0 +1,16 @@
+###
+### REFRESH ACCESS TOKEN
+###
+
+
+POST https://accounts.zoho.com/oauth/v2/token HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+    "refresh_token": "1000.6e040f999e3c2104a78e3c5389bc3ec3.e1649d7b90df57573e9822afa27a7d84",
+    "client_id": "1000.UUNIMKTDKTEXBITS0BCK4C3RJW5T1K",
+    "client_secret": "80f99888162ec195a79668846d2efd73d6108868cb",
+    "redirect_uri": "http://zh.test/zoho/redirect",
+    "grant_type": "refresh_token"
+}
