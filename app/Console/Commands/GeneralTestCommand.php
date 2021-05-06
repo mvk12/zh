@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\SystemConfig;
 use Illuminate\Console\Command;
 
 class GeneralTestCommand extends Command
@@ -37,7 +38,7 @@ class GeneralTestCommand extends Command
      */
     public function handle()
     {
-        $token = \config('services.zoho.currentToken');
+        $token = SystemConfig::where('key_code', 'zoho.access_token')->firstOrFail()->key_value;
         $this->line('Token: '.$token);
 
         $service = new \App\Services\Zoho\Subscriptions\Customers\ListCustomerService($token);

@@ -30,13 +30,16 @@ return [
     ],
 
     'zoho' => [
-        'currentToken' => env('ZOHO_CURRENT_TOKEN'),
+        'selfclient' => [
+            'id' => env('ZOHO_SELF_CLIENT_ID'),
+            'secret' => env('ZOHO_SELF_CLIENT_SECRET'),
+        ],
+        'accounts' => [
+            'url' => env('ZOHO_ACCOUNTS_URL'),
+            'authUrl' => env('ZOHO_ACCOUNTS_AUTH_URL'),
+            'tokenUrl' => env('ZOHO_ACCOUNTS_TOKEN_URL'),
+        ],
         'currentOrganizationId' => env('ZOHO_CURRENT_ORGANIZATION_ID'),
-        'url' => env('ZOHO_SUBSCRIPTIONS_URL'),
-        'authUrl' => env('ZOHO_SUBSCRIPTIONS_AUTH_URL'),
-        'tokenUrl' => env('ZOHO_SUBSCRIPTIONS_TOKEN_URL'),
-        'clientId' => env('ZOHO_SUBSCRIPTIONS_CLIENT_ID'),
-        'clientSecret' => env('ZOHO_SUBSCRIPTIONS_CLIENT_SECRET'),
         'redirectUrl' => env('ZOHO_SUBSCRIPTIONS_REDIRECT_URL'),
         'subscriptions' => [
             'apiUrl' => env('ZOHO_SUBSCRIPTIONS_API_URL'),

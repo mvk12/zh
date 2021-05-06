@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <form action="{{ config('services.zoho.authUrl') }}" method="GET">
+            <form action="{{ config('services.zoho.accounts.authUrl') }}" method="GET">
                 <h1>ZOHO START</h1>
                 <div class="form-group">
                     <label for="">SCOPE</label>
@@ -19,7 +19,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">CLIENT ID</label>
-                    <input type="text" class="form-control" name="client_id" value="{{ config('services.zoho.clientId') }}" readonly>
+                    <input type="text" class="form-control" name="client_id" value="{{ config('services.zoho.selfclient.id') }}" readonly>
                 </div>
                 <div class="form-group">
                     <label for="">RESPONSE TYPE</label>

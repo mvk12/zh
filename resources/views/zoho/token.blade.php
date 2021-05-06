@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <form action="{{ config('services.zoho.tokenUrl') }}" method="POST">
+            <form action="{{ config('services.zoho.accounts.tokenUrl') }}" method="POST">
                 <h1>ZOHO TOKEN</h1>
                 <div class="form-group">
                     <label for="">CODE</label>
@@ -19,11 +19,11 @@
                 </div>
                 <div class="form-group">
                     <label for="">CLIENT ID</label>
-                    <input type="text" class="form-control" name="client_id" value="{{ config('services.zoho.clientId') }}" readonly>
+                    <input type="text" class="form-control" name="client_id" value="{{ config('services.zoho.selfclient.id') }}" readonly>
                 </div>
                 <div class="form-group">
                     <label for="">CLIENT SECRET</label>
-                    <input type="text" class="form-control" name="client_secret" value="{{ config('services.zoho.clientSecret') }}" readonly>
+                    <input type="text" class="form-control" name="client_secret" value="{{ config('services.zoho.selfclient.secret') }}" readonly>
                 </div>
                 <div class="form-group">
                     <label for="">REDIRECT URI</label>
