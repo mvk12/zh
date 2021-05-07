@@ -14,7 +14,7 @@ class CustomerCreatorController extends Controller
 
     public function __construct()
     {
-        $_config = SystemConfig::where('key_code', 'zoho.refresh_token')->first();
+        $_config = SystemConfig::where('key_code', 'zoho.access_token')->first();
 
         $this->jwt = $_config ? $_config->key_value : null;
     }
@@ -32,8 +32,10 @@ class CustomerCreatorController extends Controller
     {
         $data = $request->except('_token');
 
+        \Log::debug(PHP_EOL.json_encode($data, JSON_PRETTY_PRINT));
+
         $token = $this->jwt;
-        $organizationId = \config('services.zoho.currentOrganizationId');
+        $organizationId = (string) \config('services.zoho.currentOrganizationId');
 
         $service = new CreateCustomerService($token, $organizationId);
 

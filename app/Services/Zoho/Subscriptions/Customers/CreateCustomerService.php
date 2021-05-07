@@ -23,14 +23,18 @@ class CreateCustomerService
     public function __invoke(array $data)
     {
         $_method = 'POST';
+        $_headers = [
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json',
+            'Authorization' => 'Zoho-oauthtoken '.$this->token,
+            'X-com-zoho-subscriptions-organizationid' => $this->organizationId,
+        ];
+
+        $this->_LogRequest($_method, config('services.zoho.subscriptions.apiUrl').'v1/customers', $_headers, \json_encode($data));
 
         $response = $this->client->request('POST', 'v1/customers', [
-            'headers' => [
-                'Accept' => 'application/json',
-                'Authorization' => 'Zoho-oauthtoken '.$this->token,
-                'X-com-zoho-subscriptions-organizationid' => $this->organizationId,
-            ],
-            'json' => $data,
+            'headers' => $_headers,
+            'body' => json_encode($data),
         ]);
 
         $statusCode = (int) $response->getStatusCode();
@@ -43,6 +47,20 @@ class CreateCustomerService
             'raw' => $strBody,
             'data' => \json_decode($strBody),
         ];
+    }
+
+    private function _LogRequest($_method, $_url, $_headers, $strBody)
+    {
+        $_httpRequest = $_method.' '.$_url.' HTTP/1.1'.PHP_EOL;
+        foreach ($_headers as $key => $value) {
+            $_httpRequest .= $key.': '.$value.PHP_EOL;
+        }
+
+        $_httpRequest .= PHP_EOL;
+        $_httpRequest .= $strBody.PHP_EOL;
+        $_httpRequest .= PHP_EOL;
+
+        \Log::debug(__FILE__.' - NEW REQUEST - '.PHP_EOL.$_httpRequest);
     }
 
     private function _LogResponse(int $statusCode, $reasonPhrase, $headers, $strBody)
