@@ -25,19 +25,31 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
+          <div class="col">
                 <div class="form-group">
-                    <label for="">PLAN CODE</label>
-                    <input type="text" class="form-control" name="plan[plan_code]" value="{{ $plan['plan_code'] }}" readonly>
+                    <label for="">PLAN</label>
+                    <select id="plan_id" name="plan[plan_code]" class="form-control">
+                      <option value="" selected>--Seleccione--</option>
+                      @foreach ($plans as $plan)
+                        <option value="{{ $plan['plan_code'] }}">({{ $plan['plan_code'] }}) {{ $plan['name'] }}</option>
+                      @endforeach
+                    </select>
                 </div>
             </div>
             <div class="col">
                 <div class="form-group">
                     <label for="">TAX ID</label>
-                    <input type="text" class="form-control" name="plan[tax_id]" value="{{ $plan['tax_id'] }}" readonly>
+                    <input type="text" id="tax_id" class="form-control" name="plan[tax_id]" readonly>
                 </div>
             </div>
-
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <div class="label">Complemento</div>
+              <input type="text" id="addon_id" class="form-control" name="addons[][addon_code]" placeholder="R6.M.1">
+            </div>
+          </div>
         </div>
         <div class="row">
             <div class="col-6">
@@ -50,5 +62,20 @@
         <button type="submit" class="btn btn-success">Enviar</button>
     </form>
 </div>
+<script>
+  window.plans = @json($plans);
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('plan_id').addEventListener('change', function(e) {
+      var plan_id = e.target.value;
+
+      var plan = window.plans.find(function(item) {
+        return item.plan_code == plan_id;
+      });
+
+      document.getElementById('tax_id').value = plan.tax_id;
+    });
+  });
+</script>
 </body>
 </html>

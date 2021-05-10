@@ -30,7 +30,8 @@ class SubscriptionCreatorController extends Controller
         $viewData['customers'] = \collect($_data['data']['customers']);
 
         $_data = (new ListPlansService($this->jwt))(\config('services.zoho.currentOrganizationId'));
-        $viewData['plan'] = $_data['data']['plans'][0];
+
+        $viewData['plans'] = $_data['data']['plans'];
 
         return \view('zoho.subscription.index', $viewData);
     }
