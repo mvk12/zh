@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Services\Zoho\Subscriptions\Customers;
+namespace App\Services\Zoho\Subscriptions\Subscriptions;
 
 use GuzzleHttp\Client;
 
-class CreateCustomerService
+class CreateSubscriptionService
 {
     private $client;
     private $token = null;
@@ -30,9 +30,9 @@ class CreateCustomerService
             'X-com-zoho-subscriptions-organizationid' => $this->organizationId,
         ];
 
-        $this->_LogRequest($_method, config('services.zoho.subscriptions.apiUrl').'v1/customers', $_headers, \json_encode($data));
+        $this->_LogRequest($_method, config('services.zoho.subscriptions.apiUrl').'v1/subscriptions', $_headers, \json_encode($data));
 
-        $response = $this->client->request('POST', 'v1/customers', [
+        $response = $this->client->request('POST', 'v1/subscriptions', [
             'headers' => $_headers,
             'body' => json_encode($data),
         ]);

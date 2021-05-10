@@ -13,3 +13,7 @@ npm-debug.log
 yarn-error.log
 .htaccess
 composer
+.htaccess
+.vue.env*
+!.vue.env.example
+.php_cs.cache

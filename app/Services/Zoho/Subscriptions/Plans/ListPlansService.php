@@ -32,7 +32,7 @@ class ListPlansService
 
         return  [
             'raw' => $strBody,
-            'data' => \json_decode($strBody),
+            'data' => \json_decode($strBody, true),
         ];
     }
 }

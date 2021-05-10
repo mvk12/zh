@@ -9,55 +9,81 @@
 </head>
 <body>
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <form action="{{ route('zoho.customer.store') }}" method="POST">
-                @csrf
-                <h1>REGISTER CUSTOMER IN ZOHO</h1>
+    <form action="{{ route('zoho.customer.store') }}" method="POST">
+        @csrf
+        <h1>REGISTER CUSTOMER IN ZOHO</h1>
+        <div class="row">
+            <div class="col">
                 <div class="form-group">
                     <label for="">DISPLAY NAME</label>
                     <input type="text" class="form-control" name="display_name" required>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
                 <div class="form-group">
                     <label for="">SALUTATION</label>
                     <input type="text" class="form-control" name="salutation">
                 </div>
+            </div>
+            <div class="col">
                 <div class="form-group">
                     <label for="">FIRST NAME</label>
                     <input type="text" class="form-control" name="first_name">
                 </div>
+            </div>
+            <div class="col">
                 <div class="form-group">
                     <label for="">LAST NAME</label>
                     <input type="text" class="form-control" name="last_name">
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
                 <div class="form-group">
                     <label for="">EMAIL</label>
                     <input type="email" class="form-control" name="email" required>
                 </div>
+            </div>
+            <div class="col">
                 <div class="form-group">
                     <label for="">COMPANY NAME</label>
                     <input type="text" class="form-control" name="company_name">
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
                 <div class="form-group">
                     <label for="">PHONE</label>
                     <input type="text" class="form-control" name="phone">
                 </div>
+            </div>
+            <div class="col">
                 <div class="form-group">
                     <label for="">MOBILE</label>
                     <input type="text" class="form-control" name="mobile">
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
                 <div class="form-group">
                     <label for="">DEPARTMENT</label>
                     <input type="text" class="form-control" name="department">
                 </div>
+            </div>
+            <div class="col">
                 <div class="form-group">
                     <label for="">DESIGNATION</label>
                     <input type="text" class="form-control" name="designation">
                 </div>
-                <button type="submit" class="btn btn-success">Enviar</button>
-            </form>
+            </div>
         </div>
-    </div>
+        <button type="submit" class="btn btn-success">Enviar</button>
+    </form>
 </div>
 </body>
 </html>

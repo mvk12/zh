@@ -11,5 +11,20 @@ trim_trailing_whitespace = true
 [*.md]
 trim_trailing_whitespace = false
 
-[*.{yml,yaml}]
+[*.{vue, yml,yaml}]
 indent_size = 2
+
+[*.blade.php]
+indent_size = 2
+
+[*.{js,scss}]
+indent_size = 2
+tab_width = 2
+
+[/node_modules/**]
+charset = unset
+end_of_line = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+indent_style = unset
+indent_size = unset
