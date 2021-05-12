@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\SystemConfig;
 use Illuminate\Console\Command;
+use Illuminate\Support\Arr;
 
 class GeneralTestCommand extends Command
 {
@@ -39,14 +40,10 @@ class GeneralTestCommand extends Command
     public function handle()
     {
         $token = SystemConfig::where('key_code', 'zoho.access_token')->firstOrFail()->key_value;
-        $this->line('Token: '.$token);
 
-        $service = new \App\Services\Zoho\Subscriptions\Customers\ListCustomerService($token);
+        $service = new \App\Services\Zoho\Subscriptions\Subscriptions\ListSubscriptionsService($token, \config('services.zoho.currentOrganizationId'));
 
-        $organizationId = \config('services.zoho.currentOrganizationId');
-        $this->line('Organization: '.$organizationId);
-
-        dd($service($organizationId));
+        dd(Arr::get($service(), 'data.subscriptions'));
 
         return 0;
     }

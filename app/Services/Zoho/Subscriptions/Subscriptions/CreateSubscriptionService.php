@@ -43,7 +43,7 @@ class CreateSubscriptionService extends AbstractZohoService
 
         return  [
             'raw' => $strBody,
-            'statusCode' = (int) $response->getStatusCode(),
+            'statusCode' => (int) $response->getStatusCode(),
             'data' => \json_decode($strBody, true),
         ];
     }

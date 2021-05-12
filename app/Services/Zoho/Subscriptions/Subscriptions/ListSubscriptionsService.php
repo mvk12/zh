@@ -4,26 +4,24 @@ namespace App\Services\Zoho\Subscriptions\Subscriptions;
 
 use App\Services\Zoho\AbstractZohoService;
 
-class BuyOneTimeAddonService extends AbstractZohoService
+class ListSubscriptionsService extends AbstractZohoService
 {
-    const METHOD = 'POST';
+    const METHOD = 'GET';
 
     private $token = null;
     private $organizationId = null;
-    private $subscriptionId = null;
     private $url = null;
 
-    public function __construct(string $token, string $organizationId, string $subscriptionId)
+    public function __construct(string $token, string $organizationId)
     {
         parent::__construct();
 
         $this->token = $token;
         $this->organizationId = $organizationId;
-        $this->subscriptionId = $subscriptionId;
-        $this->url = config('services.zoho.subscriptions.apiUrl').'v1/subscriptions/'.$subscriptionId.'/buyonetimeaddon';
+        $this->url = config('services.zoho.subscriptions.apiUrl').'v1/subscriptions';
     }
 
-    public function __invoke(array $data)
+    public function __invoke(array $filters = [])
     {
         $_headers = [
             'Accept' => 'application/json',
@@ -32,11 +30,11 @@ class BuyOneTimeAddonService extends AbstractZohoService
             'X-com-zoho-subscriptions-organizationid' => $this->organizationId,
         ];
 
-        $this->_LogRequest(self::METHOD, $this->url, $_headers, \json_encode($data));
+        $this->_LogRequest(self::METHOD, $this->url.(empty($filters) ? '' : '?'.\http_build_query($filters)), $_headers);
 
         $response = $this->client->request(self::METHOD, $this->url, [
             'headers' => $_headers,
-            'body' => json_encode($data),
+            'query' => $filters,
         ]);
 
         $strBody = (string) $response->getBody();
