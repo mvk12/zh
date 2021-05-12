@@ -4,21 +4,23 @@ namespace App\Services\Zoho\Subscriptions\Subscriptions;
 
 use App\Services\Zoho\AbstractZohoService;
 
-class CreateSubscriptionService extends AbstractZohoService
+class BuyOneTimeAddonService extends AbstractZohoService
 {
     const METHOD = 'POST';
 
     private $token = null;
     private $organizationId = null;
+    private $subscriptionId = null;
     private $url = null;
 
-    public function __construct(string $token, string $organizationId)
+    public function __construct(string $token, string $organizationId, string $subscriptionId)
     {
         parent::__construct();
 
         $this->token = $token;
         $this->organizationId = $organizationId;
-        $this->url = config('services.zoho.subscriptions.apiUrl').'v1/subscriptions';
+        $this->subscriptionId = $subscriptionId;
+        $this->url = config('services.zoho.subscriptions.apiUrl').'v1/subscriptions/'.$subscriptionId.'/buyonetimeaddon';
     }
 
     public function __invoke(array $data)
