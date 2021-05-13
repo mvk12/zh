@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\API\Zoho\Customers\CreatorCustomerController;
+use App\Http\Controllers\API\Zoho\Customers\ListCustomersController;
+use App\Http\Controllers\API\Zoho\Invoices\ListInvoicesController;
+use App\Http\Controllers\API\Zoho\Payments\CreatorPaymentController;
 use App\Http\Controllers\API\Zoho\Plans\ListPlansController;
 use App\Http\Controllers\API\Zoho\Subscriptions\CreatorAddonSubscriptionController;
 use App\Http\Controllers\API\Zoho\Subscriptions\CreatorSubscriptionController;
@@ -24,7 +27,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'zoho', 'middleware' => 'auth:api'], function () {
+    Route::get('customers', ListCustomersController::class);
     Route::post('customers', CreatorCustomerController::class);
+
+    Route::get('invoices', ListInvoicesController::class);
 
     Route::get('plans', ListPlansController::class);
 
@@ -32,4 +38,6 @@ Route::group(['prefix' => 'zoho', 'middleware' => 'auth:api'], function () {
     Route::post('subscriptions', CreatorSubscriptionController::class);
 
     Route::post('subscriptions/{subscriptionId}/addons', CreatorAddonSubscriptionController::class);
+
+    Route::post('payments', CreatorPaymentController::class);
 });

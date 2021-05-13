@@ -19,7 +19,7 @@ class ListPlansService extends AbstractZohoService
         $this->url = config('services.zoho.subscriptions.apiUrl').'v1/plans';
     }
 
-    public function __invoke(string $organizationId)
+    public function __invoke(string $organizationId, array $filters = [])
     {
         $_headers = [
             'Accept' => 'application/json',
@@ -27,10 +27,11 @@ class ListPlansService extends AbstractZohoService
             'X-com-zoho-subscriptions-organizationid' => $organizationId,
         ];
 
-        $this->_LogRequest(self::METHOD, $this->url, $_headers);
+        $this->_LogRequest(self::METHOD, $this->url.(empty($filters) ? '' : '?'.\http_build_query($filters)), $_headers);
 
         $response = $this->client->request(self::METHOD, $this->url, [
             'headers' => $_headers,
+            'query' => $filters,
         ]);
 
         $strBody = (string) $response->getBody();

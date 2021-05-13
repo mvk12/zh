@@ -13,6 +13,6 @@ class ListSubscriptionsController extends ZohoApiController
     {
         $service = new ListSubscriptionsService($this->token, \config('services.zoho.currentOrganizationId'));
 
-        return \response()->json(Arr::get($service(), 'data.subscriptions'));
+        return \response()->json(Arr::get($service($request->all()), 'data'));
     }
 }

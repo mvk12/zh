@@ -1,30 +1,32 @@
 <?php
 
-namespace App\Services\Zoho\Subscriptions\Customers;
+namespace App\Services\Zoho\Subscriptions\Invoices;
 
 use App\Services\Zoho\AbstractZohoService;
 
-class ListCustomerService extends AbstractZohoService
+class ListInvoicesService extends AbstractZohoService
 {
     const METHOD = 'GET';
 
     private $token = null;
+    private $organizationId = null;
     private $url = null;
 
-    public function __construct(string $token)
+    public function __construct(string $token, string $organizationId)
     {
         parent::__construct();
 
         $this->token = $token;
-        $this->url = config('services.zoho.subscriptions.apiUrl').'v1/customers';
+        $this->organizationId = $organizationId;
+        $this->url = config('services.zoho.subscriptions.apiUrl').'v1/invoices';
     }
 
-    public function __invoke(string $organizationId, array $filters = [])
+    public function __invoke(array $filters = [])
     {
         $_headers = [
             'Accept' => 'application/json',
             'Authorization' => 'Zoho-oauthtoken '.$this->token,
-            'X-com-zoho-subscriptions-organizationid' => $organizationId,
+            'X-com-zoho-subscriptions-organizationid' => $this->organizationId,
         ];
 
         $this->_LogRequest(self::METHOD, $this->url.(empty($filters) ? '' : '?'.\http_build_query($filters)), $_headers);

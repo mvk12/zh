@@ -11,8 +11,9 @@ class ListPlansController extends ZohoApiController
 {
     public function __invoke(Request $request)
     {
-        $service = (new ListPlansService($this->token));
+        $service = new ListPlansService($this->token);
+        $serviceData = $service(\config('services.zoho.currentOrganizationId'), $request->all());
 
-        return \response()->json(Arr::get($service(\config('services.zoho.currentOrganizationId')), 'data.plans'));
+        return \response()->json(Arr::get($serviceData, 'data'));
     }
 }
