@@ -18,4 +18,5 @@ Route::prefix('/zoho')->group(function () {
     Route::any('/webhook', WebhookController::class);
 });
 
+Route::view('/f2go/ws_rates/update-booking', 'f2go.ws_rates.updatebooking');
 Route::view('/{any?}/{all?}', 'app');
