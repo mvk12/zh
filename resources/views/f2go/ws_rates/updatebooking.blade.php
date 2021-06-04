@@ -11,8 +11,8 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <form action="http://extended.front2go.online/WHSEngine/ws_rates.asmx/UpdateBooking" method="POST">
-              {{-- .row>.col*2 --}}
+            <form action="{{route('f2go.ws_rates.update-booking.store')}}" method="POST">
+              @csrf
               <div class="row">
                 <div class="col">
                   <div class="form-group">
@@ -28,7 +28,7 @@
               <div class="row">
                 <div class="col">
                   <div class="form-group">
-                    <label for="">sp_cod_hotel</label><input type="text" class="form-control"name="sp_cod_hotel" value="DEMO" />
+                    <label for="">sp_cod_hotel</label><input type="text" class="form-control"name="sp_cod_hotel" />
                   </div>
                 </div>
                 <div class="col">
@@ -105,7 +105,7 @@
                 </div>
                 <div class="col">
                   <div class="form-group">
-                    <label for="">ip_rooms</label><input type="text" class="form-control"name="ip_rooms" />
+                    <label for="">ip_rooms</label><input type="text" class="form-control"name="ip_rooms" value="1"/>
                   </div>
                 </div>
               </div>
